@@ -3,6 +3,9 @@ import React from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './RegistrationPage.css';
 import { green } from '@mui/material/colors';
+import data from './Registrationholder';
+import TextFieldGrid from './TextFieldGrid';
+
 
 
 
@@ -23,7 +26,19 @@ const btnstyle = { margin: '26px 0', color:green}
                        <Typography variant='caption'>Please fill this form to craete an account</Typography>
                 </Grid>
                 <form style={{ display:'flex', flexDirection: 'column', gap: '20px'}}>
-                <Grid className='AB'>
+              {
+                data.map(placeholder =>
+                {
+                     return <TextFieldGrid
+                label={placeholder.label}
+                placeholder={placeholder.placeholder}
+                type={placeholder.type}
+                />
+                }
+
+                )   
+              }  
+                {/* <Grid className='AB'>
                 <TextField fullWidth label='FirstName' placeholder='Enter your FirstName'/>
                 <TextField fullWidth label='LastName'placeholder='Enter your LastName'/>
                 </Grid>
@@ -45,8 +60,8 @@ const btnstyle = { margin: '26px 0', color:green}
                 </Grid>
                 <Grid className='AB'>
                 <TextField fullWidth label='Pincode' type='Pincode' placeholder='Enter your Pincode'/>
-                <TextField fullWidth label='Country' type='Country'placeholder='Enter your Country' />
-                </Grid>
+                <TextField fullWidth label='Country' type='Country'placeholder='Enter your Country'/>
+                </Grid> */}
               
               </form>
               <button className='BC'type='submit' color='primary' variant="contained"  style={btnstyle}>Sign Up</button>

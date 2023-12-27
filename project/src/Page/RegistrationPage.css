@@ -1,0 +1,18 @@
+.AB{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+
+
+
+.AB .MuiInputBase-input[type='date']::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .BC{
+       background-color: green;
+       height: 55%;
+  }
+  

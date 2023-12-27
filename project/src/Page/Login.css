@@ -1,0 +1,17 @@
+
+.flex-container{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.grid-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 15%;
+    width: 35% !important;
+    align-items: center;
+
+}

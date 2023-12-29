@@ -33,7 +33,7 @@ const Login = () => {
                             color="primary"
                         />
                     }
-                    label="Remeber me"
+                    label="Remember me"
                     
                 />
                 

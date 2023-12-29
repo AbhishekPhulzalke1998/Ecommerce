@@ -8,6 +8,8 @@ import CustomerList from './Page/Customer/CustomerList';
 import AllOrders from './Page/AllOrders/AllOrders';
 import MyOrders from './Page/MyOrder/MyOrders';
 import OrderDetails from './Page/OrderDetails/OrderDetails';
+import ApiGet from './_services/ApiGet';
+import ApiPost from './_services/ApiPost';
 
 
 function App() {
@@ -15,13 +17,15 @@ function App() {
     <div className="App">
       
       {/* <Login/> */}
-          <RegistrationPage/>
+          {/* <RegistrationPage/> */}
           {/* <Productpage/> */}
           {/* <ProductCard/> */}
           {/* <CustomerList/> */}
           {/* <AllOrders/> */}
           {/* <MyOrders/> */}
           {/* <OrderDetails/> */}
+          {/* <ApiGet/> */}
+          <ApiPost/>
 
 
       </div>

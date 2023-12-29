@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Avatar, Grid, Link, Paper, TextField, Typography } from '@mui/material';
 import './Login.css';
+import { AuthenticateUser } from '../_services/userservice';
 
 
 const Login = () => {
@@ -13,18 +14,32 @@ const Login = () => {
     const avatarStyle = { backgroundColor: 'green' }
     const btnstyle = { margin: '8px 0' }
 
+    const login = async () => {
+        toggleBackdrop(true);
+        try {
+            const response = await AuthenticateUser({userName:"", password:""});
+            window.location.reload();
+        } catch (e) {
+            console.log(e.response);
+            createErrorToast(e?.response?.data);
+        } finally {
+            toggleBackdrop(false);
+        }
+    };
+
+
     return (
         <Grid>
-            <Paper className='grid-container'elevation={10} style={paperStyle}>
+            <Paper className='grid-container' elevation={10} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Sign in</h2>
                 </Grid>
                 <div className='flex-container'>
-                <TextField label='Email' placeholder='Enter Email'  required />
-                <TextField label='Password' placeholder='Enter Password' type='password' required />
+                    <TextField label='Email' placeholder='Enter Email' required />
+                    <TextField label='Password' placeholder='Enter Password' type='password' required />
                 </div>
-                <button type='submit' color='primary' variant="contained"  style={btnstyle}>Sign in</button>
+                <button type='submit' color='primary' variant="contained" style={btnstyle}>Sign in</button>
                 <FormControlLabel
                     control={
                         <Checkbox
@@ -34,9 +49,9 @@ const Login = () => {
                         />
                     }
                     label="Remember me"
-                    
+
                 />
-                
+
                 <Typography>
                     <Link href="#">
                         Forgot password ?
@@ -49,7 +64,7 @@ const Login = () => {
                     </Link>
                 </Typography>
             </Paper>
-            </Grid>
+        </Grid>
     );
 };
 

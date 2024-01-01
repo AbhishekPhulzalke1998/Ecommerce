@@ -1,4 +1,6 @@
 
+import AxiosService from './services/AxiosService';
+
 const _axiosService = new AxiosService();
 
 export const AuthenticateUser = async (user) => {

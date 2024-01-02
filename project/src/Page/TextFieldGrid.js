@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Grid, Paper, Typography,TextField, Flex } from '@mui/material';
-import './RegistrationPage.css';
+// import './RegistrationPage.css';
 const TextFieldGrid = (props) => {
 
   return (

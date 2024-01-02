@@ -8,6 +8,7 @@ const OrderDetails = () => {
 return (
     <>
     <h2 style={headerStyle}>Order Details</h2>
+  
 <Grid container justifyContent="center" alignItems="center">
       <Stack sx={{ margin: 'auto' }}>
       {

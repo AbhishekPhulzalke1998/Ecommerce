@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import { Grid, TextField, Container, Typography, Card } from '@mui/material';
+import React from 'react';
+import { Card, CardContent, Typography, Stack,Grid } from '@mui/material';
 import Product from './Product/Product';
-
+import OrderData from './Product/Data';
+ 
 const Productpage = () => {
-    const [productData, setProductData] = useState({
-        productname: '',
-        productdescription: '',
-        price: '',
-        quantity: '',
-        image: '',
-        discount: '',
-    });
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProductData((prevData) => ({ ...prevData, [name]: value }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Product Data:', productData);
-    };
-
-    return (
-        <Container className="product-container">
-            <Typography variant="caption" className="product-title">
-                Product Page
-            </Typography>
-            <Product />
-        </Container>
-    );
-};
-
+    const headerStyle={margin:0}
+return (
+    <>
+    {/* <h2 style={headerStyle}>MyOrder Details</h2> */}
+<Grid container justifyContent="center" alignItems="center">
+      <Stack sx={{ margin: 'auto' }}>
+      {
+          OrderData.map(order =>
+            {
+                return <Product
+                image={order.image}
+                ProductName={order.ProductName}
+                ProductDescription={order.ProductDescription}
+                Price={order.Price}
+                Quantity={order.Quantity}
+                Discount={order.Discount}
+              
+                
+                
+                
+                />
+            })  
+        }
+</Stack>
+      </Grid>
+      </>
+)
+}
+ 
 export default Productpage;

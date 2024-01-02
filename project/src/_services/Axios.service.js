@@ -1,6 +1,5 @@
 import Axios from "axios";
 
-
 export class AxiosService {
   _axiosInstance = null;
 
@@ -12,8 +11,7 @@ export class AxiosService {
     this._axiosInstance = Axios.create({
       baseURL: "",
       timeout: 30000,
-      withCredentials: true
-    });
+  });
 
     // Add a request interceptor
     this._axiosInstance.interceptors.request.use(

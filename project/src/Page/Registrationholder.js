@@ -23,7 +23,7 @@ const data = [
     },
 
     {
-        label:'PhoneNo' ,
+        label:'PhoneNo',
         placeholder:'Enter your PhoneNo',
        
     },
@@ -34,7 +34,7 @@ const data = [
     },
 
     {
-        label:'Address' ,
+        label:'Address',
         placeholder:'Enter your Address',
         
       
@@ -62,7 +62,7 @@ const data = [
 
     },
     {
-        label:'country' ,
+        label:'country',
         placeholder:'Enter your Country',
      
     }

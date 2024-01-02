@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Stack,Grid } from '@mui/material';
 import ProductCard2 from './Productcard2';
-
 import OrderData from './Data';
  
 const ProductCard = () => {

@@ -5,7 +5,7 @@ export const AuthenticateUser = async (user) => {
 
   const response = await _axiosService
     .getAxiosInstance()
-    .post("https://jsonplaceholder.typicode.com/users", user);
+    .post(Urls.User.AuthenticateUser, user);
 
   return response;
 };

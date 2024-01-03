@@ -3,7 +3,7 @@ import { AxiosService } from "./Axios.service";
 
 
 const _axiosService = new AxiosService();
-export const registerUser = async (userData) => {
+export const User = async (userData) => {
    const response = await _axiosService
       .getAxiosInstance()
       .post("", userData, {
@@ -14,10 +14,3 @@ export const registerUser = async (userData) => {
  
    return response;
 }
-
-
-
-
-
-
-

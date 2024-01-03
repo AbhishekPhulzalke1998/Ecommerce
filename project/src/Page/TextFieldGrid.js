@@ -4,8 +4,9 @@ import { Avatar, Grid, Paper, Typography,TextField, Flex } from '@mui/material';
 const TextFieldGrid = (props) => {
 
   return (
-    <TextField fullWidth type={props.type} label={props.label} placeholder={props.placeholder}/>
+    <TextField fullWidth type={props.type} label={props.label} placeholder={props.placeholder} onChange = {props.onChange}/>
   )
+
 }
 
 export default TextFieldGrid

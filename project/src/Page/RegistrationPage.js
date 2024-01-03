@@ -4,12 +4,13 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './RegistrationPage.css';
 import data from './Registrationholder';
 import TextFieldGrid from './TextFieldGrid';
+import { registerUser } from '../_services/registrationService';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({});
 
   const registerUser = async (formData) => {
-    // ... implementation of registerUser function
+
   };
 
   const handleSubmit = async (e) => {
@@ -53,7 +54,7 @@ const RegistrationPage = () => {
               onChange={(e) => handleInputChange(placeholder.label, e.target.value)}
             />
           ))}
-          <Button className="BC" type="submit" color="primary" variant="contained" style={btnstyle}>
+          <Button className="BC" type="submit" color="black" variant="contained" style={btnstyle}>
             Sign Up
           </Button>
         </form>

@@ -6,26 +6,53 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { Avatar, Grid, Link, Paper, TextField, Typography } from '@mui/material';
 import './Login.css';
 import { AuthenticateUser } from '../_services/userservice';
-
+import { loginUser } from '../_services/loginService';
+import  { useState } from 'react';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginUser = async (Email,Password) => {
+
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(email,password);
+    const response = await loginUser(email,password);
+    if (response.status === 201) {
+      console.log('User login successfully');
+    } else {
+      console.error('Unexpected response status:', response.status);
+    }
+  };
+
+  const handleChange = (e) => {
+    // Update the state based on the input field
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else if (e.target.name === 'password') {
+      setPassword(e.target.value);
+    }
+  };
 
     const paperStyle = { padding: 20, margin: "20px auto" };
     const avatarStyle = { backgroundColor: 'green' }
     const btnstyle = { margin: '8px 0' }
 
-    const login = async () => {
-        toggleBackdrop(true);
-        try {
-            const response = await AuthenticateUser({userName:"", password:""});
-            window.location.reload();
-        } catch (e) {
-            console.log(e.response);
-            createErrorToast(e?.response?.data);
-        } finally {
-            toggleBackdrop(false);
-        }
-    };
+    //     const login = async () => {
+    //     toggleBackdrop(true);
+    //     try {
+    //           const response = await AuthenticateUser({userName:"", password:""});
+    //          window.location.reload();
+    //     } catch (e) {
+    //         console.log(e.response);
+    //         createErrorToast(e?.response?.data);
+    //     } finally {
+    //         toggleBackdrop(false);
+    //     }
+    // };
 
 
     return (

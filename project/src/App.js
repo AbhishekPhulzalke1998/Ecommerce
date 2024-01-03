@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       
           {/* <Login/> */}
-          {/* <RegistrationPage/> */}
+          <RegistrationPage/>
           {/* <Productpage/> */}
           {/* <ProductCard/> */}
           {/* <CustomerList/> */}
@@ -27,7 +27,8 @@ function App() {
           {/* <ApiGet/> */}
           {/* <ApiPost/> */}
           {/* <registrationService/> */}
-          <userservice/>
+          {/* <userservice/> */}
+          {/* <loginService/> */}
 
 
       </div>

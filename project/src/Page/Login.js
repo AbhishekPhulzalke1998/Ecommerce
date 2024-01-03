@@ -10,17 +10,15 @@ import { loginUser } from '../_services/loginService';
 import  { useState } from 'react';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [credentials, setCredentials] = useState({ email: '', password: '' });
 
   const loginUser = async (Email,Password) => {
-
   };
 
-  const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email,password);
-    const response = await loginUser(email,password);
+    console.log(credentials.email,credentials.password);
+    const response = await loginUser(credentials.email, credentials.password);
     if (response.status === 201) {
       console.log('User login successfully');
     } else {
@@ -30,11 +28,12 @@ const Login = () => {
 
   const handleChange = (e) => {
     // Update the state based on the input field
-    if (e.target.name === 'email') {
-      setEmail(e.target.value);
-    } else if (e.target.name === 'password') {
-      setPassword(e.target.value);
-    }
+    const { name, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
+    console.log(credentials);
   };
 
     const paperStyle = { padding: 20, margin: "20px auto" };
@@ -63,8 +62,26 @@ const Login = () => {
                     <h2>Sign in</h2>
                 </Grid>
                 <div className='flex-container'>
-                    <TextField label='Email' placeholder='Enter Email' required />
-                    <TextField label='Password' placeholder='Enter Password' type='password' required />
+                    <TextField 
+                     label='Email'
+                     placeholder='Enter Email'
+                      type='email'
+                       required
+                       name='email'
+                       value={credentials.email}
+                       onChange={handleChange}
+                      
+                       />
+                    <TextField 
+                    label='Password'
+                    placeholder='Enter Password'
+                    type='password' 
+                    required 
+                    name='password'
+                    value={credentials.password}
+                    onChange={handleChange}
+                  
+                    />
                 </div>
                 <button type='submit' color='primary' variant="contained" style={btnstyle}>Sign in</button>
                 <FormControlLabel

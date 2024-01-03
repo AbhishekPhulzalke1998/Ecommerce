@@ -54,7 +54,7 @@ const RegistrationPage = () => {
               onChange={(e) => handleInputChange(placeholder.label, e.target.value)}
             />
           ))}
-          <Button className="BC" type="submit" color="black" variant="contained" style={btnstyle}>
+          <Button className="BC" type="submit" color="success" variant="contained" style={btnstyle}>
             Sign Up
           </Button>
         </form>

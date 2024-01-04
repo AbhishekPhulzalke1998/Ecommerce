@@ -1,24 +1,24 @@
-const OrderData=[
+const OrderData = [
     {
-        Sr:  "1",
+        Sr: "1",
         OrderNo: "11",
         Total: "758",
-        OrderStatus:"Delivered",
-       
+        OrderStatus: "Delivered",
+
     },
     {
         Sr: "2",
-        OrderNo:  "12",
+        OrderNo: "12",
         Total: "648",
-        OrderStatus:"failed",
-    
+        OrderStatus: "failed",
+
     },
     {
         Sr: "3",
-        OrderNo:  "13",
+        OrderNo: "13",
         Total: "479",
-        OrderStatus:"Proress",
-   
+        OrderStatus: "Progress",
+
     }
 ]
 

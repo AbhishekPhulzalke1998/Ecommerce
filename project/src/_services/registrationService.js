@@ -6,12 +6,10 @@ const _axiosService = new AxiosService();
 export const registerUser = async (userData) => {
    const response = await _axiosService
       .getAxiosInstance()
-      .post("", userData, {
-         headers: {
-            "Content-Type": "multipart/form-data",
-         },
+      .post("https://localhost:7236/api/Registartion/register", userData, {
+         
       });
- 
+
    return response;
 }
 

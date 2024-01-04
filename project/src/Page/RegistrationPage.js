@@ -8,58 +8,86 @@ import { registerUser } from '../_services/registrationService';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
 
+
+   
   const registerUser = async (formData) => {
 
   };
+  const avatarStyle = { backgroundColor: 'green' };
+
+        
+// const [FirstName, setFirstName] = useState('')
+// const [LastName, setLastName] = useState('')
+// const [Email, setEmail] = useState('')
+// const [Password, setPassword] = useState('')
+// const [PhoneNo, setPhoneNo] = useState('')
+// const [date, setdatedate] = useState('')
+// const [Address, setAddress] = useState('')
+// const [Street, setStreet] = useState('')
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     const response = await registerUser(formData);
-    if (response.status === 201) {
+    if (response?.status === 201) {
       console.log('User registered successfully');
     } else {
-      console.error('Unexpected response status:', response.status);
+      console.error('Unexpected response status:', response?.status);
     }
   };
 
-  const paperStyle = { padding: '30px 20px', width: 500, margin: '20px auto' };
-  const headerStyle = { margin: 0 };
-  const avatarStyle = { backgroundColor: 'green' };
-  const btnstyle = { margin: '26px 0', color: 'green' };
+
 
   const handleInputChange = (label, value) => {
-    setFormData((prevData) => ({ ...prevData, [label]: value }));
+  
+    const updatedFormData = { ...formData, [label]: value };
+   
+  
+    const isFormValid = Object.values(updatedFormData).every((value) => value !== undefined && value !== '');
+   
+   
+    setFormData(updatedFormData);
+    setIsFormValid(isFormValid);
   };
+  
 
   return (
     <Grid>
-      <Paper elevation={20} style={paperStyle}>
+      <Paper className='noun'>
         <Grid align="center">
-          <Avatar style={avatarStyle}>
+        <Avatar style={avatarStyle}>
             <AddCircleOutlineIcon />
           </Avatar>
-          <h2 style={headerStyle}>Sign Up</h2>
+          <h2 className='headerStyle'  >Sign Up</h2>
           <Typography variant="caption">Please fill this form to create an account</Typography>
         </Grid>
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={handleSubmit}>
+        <form className='pro' onSubmit={handleSubmit}>
           {data.map((placeholder) => (
+               <div className='flex-container'>
             <TextFieldGrid
-              key={placeholder.label}
-              label={placeholder.label}
+              key={placeholder.label }
+              label={placeholder.label || placeholder.label2}
               placeholder={placeholder.placeholder}
               type={placeholder.type}
-              value={formData[placeholder.label] || ''}
-              onChange={(e) => handleInputChange(placeholder.label, e.target.value)}
+              value={formData[placeholder.label || placeholder.label2] ||''}
+              
+              onChange={(e) => handleInputChange(placeholder.label || placeholder.label2, e.target.value)}
             />
+            </div>
           ))}
-          <Button className="BC" type="submit" color="success" variant="contained" style={btnstyle}>
+
+
+      
+          <Button disabled={!isFormValid} className="btnStyle" type="submit" color="success" variant="contained">
             Sign Up
           </Button>
         </form>
       </Paper>
     </Grid>
+    
   );
 };
 

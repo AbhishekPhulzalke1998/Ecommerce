@@ -1,15 +1,40 @@
-/* .AB{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+ .noun {
+    padding: 30px 20px;
+    width: 500px; 
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
 }
 
-.AB .MuiInputBase-input[type='date']::-webkit-input-placeholder {
-    color: transparent;
+
+.headerStyle {
+    margin: 0;
+  }
+   
+  .avatarStyle {
+    color: green;
+    background-color: green;
+  }
+   
+  .btnStyle {
+    margin: 26px 0;
+    color: green;
+    background-color: rgb(32, 158, 127);
+}
+
+  .pro{
+    display: 'flex';
+    flex-direction: 'column';
+    gap: '20px'
   }
 
-  .BC{
-       background-color: green;
-       height: 55%;
-  }
-   */
+
+.flex-container{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column; 
+    margin: 15px 0;
+    justify-content: center;
+    align-items: center;
+}

@@ -15,23 +15,24 @@ import ApiPost from './_services/registrationService';
 function App() {
   return (
     <div className="App">
-      
-          <Login/>
-          {/* <RegistrationPage/> */}
-          {/* <Productpage/> */}
-          {/* <ProductCard/> */}
-          {/* <CustomerList/> */}
-          {/* <AllOrders/> */}
-          {/* <MyOrders/> */}
-          {/* <OrderDetails/> */}
-          {/* <ApiGet/> */}
-          {/* <ApiPost/> */}
-          {/* <registrationService/> */}
-          {/* <userservice/> */}
-          {/* <loginService/> */}
 
 
-      </div>
+      {/* <Login/> */}
+      <RegistrationPage/>
+      {/* <Productpage /> */}
+      {/* <ProductCard/> */}
+      {/* <CustomerList/> */}
+      {/* <AllOrders/> */}
+      {/* <MyOrders/> */}
+      {/* <OrderDetails/> */}
+      {/* <ApiGet/> */}
+      {/* <ApiPost/> */}
+      {/* <registrationService/> */}
+      {/* <userservice/> */}
+      {/* <loginService/> */}
+
+
+    </div>
   );
 }
 

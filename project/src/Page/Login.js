@@ -35,23 +35,9 @@ const Login = () => {
         console.log(credentials);
     };
 
-    // const paperStyle = { padding: 20, margin: "20px auto" };
+    const paperStyle = { padding: 20, margin: "20px auto" };
     const avatarStyle = { backgroundColor: 'green' }
     const btnstyle = { margin: '8px 0' }
-
-    //     const login = async () => {
-    //     toggleBackdrop(true);
-    //     try {
-    //           const response = await AuthenticateUser({userName:"", password:""});
-    //          window.location.reload();
-    //     } catch (e) {
-    //         console.log(e.response);
-    //         createErrorToast(e?.response?.data);
-    //     } finally {
-    //         toggleBackdrop(false);
-    //     }
-    // };
-
 
     return (
         <Grid>

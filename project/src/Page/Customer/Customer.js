@@ -4,10 +4,6 @@ const Customer = (props) => {
 
   console.log(props);
   const hidePassword = (password) => '*'.repeat(password.length);
-  // const cellStyle = {
-  //   border: '1px solid black',  
-  //   padding: '10px',            
-  // };
   return (
 
     <Card sx={{ maxWidth: 520, marginTop: '10px', marginBottom: '10px' }}>
@@ -21,14 +17,7 @@ const Customer = (props) => {
       </CardContent>
     </Card>
 
-    // <tr>
-    //   <td style={cellStyle}>{props.FirstName}</td>
-    //   <td style={cellStyle}>{props.LastName}</td>
-    //   <td style={cellStyle}>{props.Email}</td>
-    //   <td style={cellStyle}>{hidePassword(props.Password)}</td>
-    //   <td style={cellStyle}>{props.type}</td>
-    // </tr>
-
+  
   )
 }
 

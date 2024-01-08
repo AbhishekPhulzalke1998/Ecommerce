@@ -8,23 +8,27 @@ import { registerUser } from '../_services/registrationService';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [errorMessages, setErrorMessages] = useState({});
+  const [isFormValid, setIsFormValid] = useState(null);
 
   const registerUser = async (formData) => {
-    // Implement your registration logic here
+
   };
 
   const avatarStyle = { backgroundColor: 'green' };
 
   const handleInputChange = (label, value) => {
-    let errorMessages = {};
+    let newErrorMessages = {};
+    let isFormValid = true;
 
     // Validation for PhoneNo by which only accepts the digits and up to 10 digits
     if (label === 'PhoneNo') {
       const isValidPhoneNo = !isNaN(value) && parseInt(value, 10).toString().length === 10;
       if (!isValidPhoneNo) {
-        errorMessages[label] = 'Invalid Phone Number (should be 10 digits)';
-    
+        newErrorMessages[label] = 'Invalid PhoneNo only digits are allowed  (PhoneNo  should be of 10  digits)';
+        isFormValid = false;
+      } else {
+        newErrorMessages[label] = '';
       }
     }
 
@@ -32,30 +36,33 @@ const RegistrationPage = () => {
     if (label === 'Pincode') {
       const isValidPincode = !isNaN(value) && parseInt(value, 10).toString().length === 6;
       if (!isValidPincode) {
-        errorMessages[label] = 'Invalid Pincode (should be 6 digits)';
-     
+        newErrorMessages[label] = 'Invalid Pincode only digits are allowed  ( Pincode should be of 6 digits)';
+        isFormValid = false;
+      } else {
+        newErrorMessages[label] = '';
       }
     }
 
     const updatedFormData = { ...formData, [label]: value };
 
-    // Below lines of code are check to see if there are any empty or undefined fields
-    const isFormValid = data.every((placeholder) => updatedFormData[placeholder.label] !== undefined && updatedFormData[placeholder.label] !== '');
-
-    setFormData(updatedFormData);
-    setIsFormValid(isFormValid);
-
-  
+    setFormData(updatedFormData); // updating the FormData
+    setErrorMessages(newErrorMessages); // Update error messages state
+    setIsFormValid(isFormValid); // Here we are updating isFormValid
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    const response = await registerUser(formData);
-    if (response?.status === 201) {
-      console.log('User registered successfully');
+
+    if (isFormValid) {
+      const response = await registerUser(formData);
+      if (response?.status === 201) {  // from 200 to 299 indicates Successful response
+        console.log('User registered successfully');
+      } else {
+        console.error('Unexpected response status:', response?.status);
+      }
     } else {
-      console.error('Unexpected response status:', response?.status);
+      console.log('Form is not valid. Please correct errors.');
     }
   };
 
@@ -71,14 +78,14 @@ const RegistrationPage = () => {
         </Grid>
         <form className='pro' onSubmit={handleSubmit}>
           {data.map((placeholder) => (
-            <div className='flex-container'>
+            <div className='flex-container' key={placeholder.label}>
               <TextFieldGrid
-                key={placeholder.label}
                 label={placeholder.label}
                 placeholder={placeholder.placeholder}
                 type={placeholder.type}
                 value={formData[placeholder.label] || ''}
                 onChange={(value) => handleInputChange(placeholder.label, value)}
+                error={errorMessages[placeholder.label] || ''}
               />
             </div>
           ))}
@@ -88,7 +95,7 @@ const RegistrationPage = () => {
             type="submit"
             color="success"
             variant="contained"
-            disabled={!isFormValid}
+            disabled={isFormValid === null || !isFormValid}
           >
             Sign Up
           </Button>

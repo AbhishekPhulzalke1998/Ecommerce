@@ -21,8 +21,8 @@ function App() {
       <RegistrationPage/>
       {/* <Productpage /> */}
       {/* <ProductCard/> */}
-      {/* <CustomerList/> */}
-      {/* <AllOrders/> */}
+      {/* <CustomerList/>
+      <AllOrders/> */}
       {/* <MyOrders/> */}
       {/* <OrderDetails/> */}
       {/* <ApiGet/> */}

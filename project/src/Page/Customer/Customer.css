@@ -1,0 +1,12 @@
+.customer-card {
+    max-width: 520px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .customer-info {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 1.2em; 
+  }
+  

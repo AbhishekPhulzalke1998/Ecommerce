@@ -1,0 +1,36 @@
+/* Product.css */
+
+.product-stack {
+    margin: 20px;
+  }
+  
+  .product-card {
+    max-width: 520px;
+  }
+  
+  .product-card-media {
+    height: 250px;
+  }
+  
+  .product-card-content {
+    text-align: center;
+  }
+  
+  .product-name {
+    font-weight: bold;
+  }
+  
+  .product-description {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  .product-price,
+  .product-quantity,
+  .product-discount {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    color: inherit; /* Keep the same text color */
+  }
+  

@@ -1,0 +1,13 @@
+.my-order-card {
+    max-width: 520px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .order-info {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }

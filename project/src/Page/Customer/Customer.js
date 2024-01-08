@@ -1,24 +1,23 @@
 import React from 'react';
 import { Card, CardContent, Typography, Stack, Grid } from '@mui/material';
+import './Customer.css'; 
+
 const Customer = (props) => {
 
   console.log(props);
   const hidePassword = (password) => '*'.repeat(password.length);
-  return (
 
-    <Card sx={{ maxWidth: 520, marginTop: '10px', marginBottom: '10px' }}>
+  return (
+    <Card className="customer-card">
       <CardContent>
-        {/* <Typography variant="h4" style={{ fontWeight: 'bold',textAlign:'left' }}>CustomerList :-</Typography> */}
-        <Typography variant="h5" style={{ textAlign: 'right' }}>FirstName:- {props.FirstName}</Typography>
-        <Typography variant='h5' style={{ textAlign: 'right' }}>LastName:- {props.LastName}</Typography>
-        <Typography variant='h5' style={{ textAlign: 'right' }}>Email:- {props.Email}</Typography>
-        <Typography variant='h5' style={{ textAlign: 'right' }}>Password:- {hidePassword(props.Password)}</Typography>
-        <Typography variant='h5' style={{ textAlign: 'right' }}>type:- {props.type}</Typography>
+        <Typography variant="h5" className="customer-info">FirstName:- {props.FirstName}</Typography>
+        <Typography variant='h5' className="customer-info">LastName:- {props.LastName}</Typography>
+        <Typography variant='h5' className="customer-info">Email:- {props.Email}</Typography>
+        <Typography variant='h5' className="customer-info">Password:- {hidePassword(props.Password)}</Typography>
+        <Typography variant='h5' className="customer-info">Type:- {props.type}</Typography>
       </CardContent>
     </Card>
-
-  
-  )
+  );
 }
 
 export default Customer;

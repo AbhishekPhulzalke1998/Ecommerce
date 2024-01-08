@@ -16,15 +16,15 @@ function App() {
   return (
     <div className="App">
 
-
-      {/* <Login/> */}
-      <RegistrationPage/>
-      {/* <Productpage /> */}
+ 
+      {/*<Login/> */}
+      {/* <RegistrationPage/> */}
+      <Productpage />
       {/* <ProductCard/> */}
-      {/* <CustomerList/>
-      <AllOrders/> */}
+      {/* <CustomerList/> */}
+      {/* <AllOrders/> */}
       {/* <MyOrders/> */}
-      {/* <OrderDetails/> */}
+      {/* <OrderDetails/>  */}
       {/* <ApiGet/> */}
       {/* <ApiPost/> */}
       {/* <registrationService/> */}

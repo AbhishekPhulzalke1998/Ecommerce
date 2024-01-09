@@ -15,8 +15,7 @@ const ProductCard2 = (props) => {
           />
           <CardContent className="product-card-content">
             <Typography gutterBottom variant="h4" component="div" className="product-name"> ProductName:   {props.ProductName}</Typography>
-            <Typography variant="body2" color="text.secondary" className="product-description">
-              ProductDescription: {props.ProductDescription}</Typography>
+            <Typography variant="body2" color="text.secondary" className="product-description">ProductDescription: {props.ProductDescription}</Typography>
             <Typography variant="h6" className="price">Price :     {props.Price}</Typography>
             <Typography variant="h6" className="quantity">Quantity :   {props.Quantity}</Typography>
             <Typography variant="h6" className="discount"> Discount :   {props.Discount}</Typography>

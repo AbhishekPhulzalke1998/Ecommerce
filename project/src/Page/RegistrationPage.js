@@ -1,5 +1,3 @@
-// RegistrationPage.js
-
 import { Avatar, Grid, Paper, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';

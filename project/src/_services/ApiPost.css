@@ -1,16 +1,13 @@
-
-
 .centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: skyblue;
-    width: 100%; 
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: skyblue;
+  width: 100%;
+}
 
-  .date_input {
-    width: 18%; 
-  }
-  
+.date_input {
+  width: 18%;
+}

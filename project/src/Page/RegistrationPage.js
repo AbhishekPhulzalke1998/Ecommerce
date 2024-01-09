@@ -1,3 +1,5 @@
+// RegistrationPage.js
+
 import { Avatar, Grid, Paper, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -8,46 +10,51 @@ import { registerUser } from '../_services/registrationService';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
   const [errorMessages, setErrorMessages] = useState({});
-  const [isFormValid, setIsFormValid] = useState(null);
 
   const registerUser = async (formData) => {
-
+   
   };
 
   const avatarStyle = { backgroundColor: 'green' };
 
   const handleInputChange = (label, value) => {
-    let newErrorMessages = {};
-    let isFormValid = true;
-
-    // Validation for PhoneNo by which only accepts the digits and up to 10 digits
-    if (label === 'PhoneNo') {
-      const isValidPhoneNo = !isNaN(value) && parseInt(value, 10).toString().length === 10;
-      if (!isValidPhoneNo) {
-        newErrorMessages[label] = 'Invalid PhoneNo only digits are allowed  (PhoneNo  should be of 10  digits)';
-        isFormValid = false;
-      } else {
-        newErrorMessages[label] = '';
-      }
-    }
-
-    // Validation for Pincode by which only accepts the digits and up to 6 digits.
-    if (label === 'Pincode') {
-      const isValidPincode = !isNaN(value) && parseInt(value, 10).toString().length === 6;
-      if (!isValidPincode) {
-        newErrorMessages[label] = 'Invalid Pincode only digits are allowed  ( Pincode should be of 6 digits)';
-        isFormValid = false;
-      } else {
-        newErrorMessages[label] = '';
-      }
-    }
-
     const updatedFormData = { ...formData, [label]: value };
 
-    setFormData(updatedFormData); // updating the FormData
-    setErrorMessages(newErrorMessages); // Update error messages state
-    setIsFormValid(isFormValid); // Here we are updating isFormValid
+    // Validation for PhoneNo: only digits and up to 10 digits
+    if (label === 'PhoneNo') {
+      const isValidPhoneNo = !isNaN(value) && value.length === 10;
+      if (!isValidPhoneNo) {
+        // Invalid PhoneNo
+        setFormData(updatedFormData);
+        setErrorMessages({ ...errorMessages, [label]: 'Invalid PhoneNo. Only digits are allowed (PhoneNo should be of 10 digits)' });
+        setIsFormValid(false);
+        return;
+      } else {
+        setErrorMessages({ ...errorMessages, [label]: '' });
+      }
+    }
+
+    // Validation for Pincode: only digits and up to 6 digits
+    if (label === 'Pincode') {
+      const isValidPincode = !isNaN(value) && value.length === 6;
+      if (!isValidPincode) {
+        // Invalid Pincode
+        setFormData(updatedFormData);
+        setErrorMessages({ ...errorMessages, [label]: 'Invalid Pincode. Only digits are allowed (Pincode should be of 6 digits)' });
+        setIsFormValid(false);
+        return;
+      } else {
+        setErrorMessages({ ...errorMessages, [label]: '' });
+      }
+    }
+
+    // Check if all fields are filled
+    const isFormValid = data.every((placeholder) => updatedFormData[placeholder.label] !== undefined && updatedFormData[placeholder.label] !== '');
+
+    setFormData(updatedFormData);
+    setIsFormValid(isFormValid);
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +63,7 @@ const RegistrationPage = () => {
 
     if (isFormValid) {
       const response = await registerUser(formData);
-      if (response?.status === 201) {  // from 200 to 299 indicates Successful response
+      if (response?.status === 201) {
         console.log('User registered successfully');
       } else {
         console.error('Unexpected response status:', response?.status);
@@ -95,7 +102,7 @@ const RegistrationPage = () => {
             type="submit"
             color="success"
             variant="contained"
-            disabled={isFormValid === null || !isFormValid}
+            disabled={!isFormValid}
           >
             Sign Up
           </Button>

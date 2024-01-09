@@ -18,8 +18,8 @@ function App() {
 
  
       {/*<Login/> */}
-      {/* <RegistrationPage/> */}
-      <Productpage />
+      <RegistrationPage/>
+      {/* <Productpage /> */}
       {/* <ProductCard/> */}
       {/* <CustomerList/> */}
       {/* <AllOrders/> */}

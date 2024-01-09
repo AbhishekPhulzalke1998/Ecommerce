@@ -20,7 +20,7 @@ const RegistrationPage = () => {
   const handleInputChange = (label, value) => {
     const updatedFormData = { ...formData, [label]: value };
 
-    // Validation for PhoneNo: only digits and up to 10 digits
+    // Validationn for PhoneNo: only digits and up to 10 digits
     if (label === 'PhoneNo') {
       const isValidPhoneNo = !isNaN(value) && value.length === 10;
       if (!isValidPhoneNo) {
@@ -48,7 +48,7 @@ const RegistrationPage = () => {
       }
     }
 
-    // Check if all fields are filled
+    // Checkingg for all fields are filled .
     const isFormValid = data.every((placeholder) => updatedFormData[placeholder.label] !== undefined && updatedFormData[placeholder.label] !== '');
 
     setFormData(updatedFormData);

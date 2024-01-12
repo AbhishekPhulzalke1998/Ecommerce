@@ -9,7 +9,7 @@ export class AxiosService {
         }
 
         this._axiosInstance = Axios.create({
-            baseURL: "",
+            baseURL: "https://localhost:5143",
             timeout: 30000,
         });
 

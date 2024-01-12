@@ -2,23 +2,26 @@ import { Avatar, Grid, Paper, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './RegistrationPage.css';
-import data from './Registrationholder';
+import Registrationform_data from './Registrationholder';
 import TextFieldGrid from './TextFieldGrid';
 import { registerUser } from '../_services/registrationService';
+import { Status_Code, Phone_No_Error_Messaege, Pincode_Error_Messaege } from '../Constant/Constants';
 
-const RegistrationPage = () => {
+
+  const RegistrationPage = () => {
   const [formData, setFormData] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [errorMessages, setErrorMessages] = useState({});
 
-  const registerUser = async (formData) => {
+  // const registerUser = async (formData) => {
    
-  };
+  // };
+  
 
   const avatarStyle = { backgroundColor: 'green' };
 
   const handleInputChange = (label, value) => {
-    const updatedFormData = { ...formData, [label]: value };
+  const updatedFormData = { ...formData, [label]: value };
 
     // Validationn for PhoneNo: only digits and up to 10 digits
     if (label === 'PhoneNo') {
@@ -49,7 +52,7 @@ const RegistrationPage = () => {
     }
 
     // Checkingg for all fields are filled .
-    const isFormValid = data.every((placeholder) => updatedFormData[placeholder.label] !== undefined && updatedFormData[placeholder.label] !== '');
+    const isFormValid = Registrationform_data.every((placeholder) => updatedFormData[placeholder.label] !== undefined && updatedFormData[placeholder.label] !== '');
 
     setFormData(updatedFormData);
     setIsFormValid(isFormValid);
@@ -61,7 +64,7 @@ const RegistrationPage = () => {
 
     if (isFormValid) {
       const response = await registerUser(formData);
-      if (response?.status === 201) {
+      if (response?.status === Status_Code) {
         console.log('User registered successfully');
       } else {
         console.error('Unexpected response status:', response?.status);
@@ -82,7 +85,7 @@ const RegistrationPage = () => {
           <Typography variant="caption">Please fill this form to create an account</Typography>
         </Grid>
         <form className='pro' onSubmit={handleSubmit}>
-          {data.map((placeholder) => (
+          {Registrationform_data.map((placeholder) => (
             <div className='flex-container' key={placeholder.label}>
               <TextFieldGrid
                 label={placeholder.label}

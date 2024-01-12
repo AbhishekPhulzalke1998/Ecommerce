@@ -1,4 +1,4 @@
-const data = [
+const Registrationform_data = [
     {
         label: 'FirstName',
         placeholder: 'Enter your FirstName',
@@ -28,7 +28,7 @@ const data = [
 
     },
     {
-        label2: 'date',
+        label: 'date',
         placeholder: 'Enter your data',
         type: 'date'
     },
@@ -69,4 +69,4 @@ const data = [
 
 
 ]
-export default data;
+export default Registrationform_data;
